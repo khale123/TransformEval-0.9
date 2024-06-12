@@ -1,0 +1,171 @@
+,Code,Description
+0,"df = mean_center_row(df,0)
+",Subtracts the mean value of the data in the first row from every data point in the same row.
+1,"df = mean_center_column(df,0)
+",Subtracts the mean value of the data in the first column from every data point in the same column.
+2,"df = normalize_row(df,0)
+",Divides every value in the first row by the sum of all the values in the first row so that a sum over all the values in the row equals 1.
+3,"df = normalize_column(df,0)
+",Divides every value in the first column by the sum of all the values in the first column so that a sum over all the values in the column equals 1.
+4,"df = reconstruct_using_PCA(df, 5)
+",Reconstructs the data in a dataframe using the first five principal components.
+5,"df = add_mean_row(df)
+",Adds a row to the dataframe where each value is the mean value of the column it belongs to.
+6,"df = add_median_row(df)
+",Adds a row to the dataframe where each value is the median value of the column it belongs to.
+7,"df = add_std_row(df)
+",Adds a row to the dataframe where each value is the standard deviation value of the column it belongs to.
+8,"df = add_var_row(df)
+",Adds a row to the dataframe where each value is the variance value of the column it belongs to.
+9,"df = add_skewness_row(df)
+",Adds a row to the dataframe where each value is the skewness value of the column it belongs to.
+10,"df = add_kurtosis_row(df)
+",Adds a row to the dataframe where each value is the kurtosis value of the column it belongs to.
+11,"df = add_sum_row(df)
+",Adds a row to the dataframe where each value is the sum over the elemtns of the column it belongs to.
+12,"df = add_min_row(df)
+",Adds a row to the dataframe where each value is the minimum value of the column it belongs to.
+13,"df = add_max_row(df)
+",Adds a row to the dataframe where each value is the maximum value of the column it belongs to.
+14,"df = add_count_row(df, 0)
+",Adds a row to the dataframe where each value is the number of 0's that occur in the column it belongs to.
+15,"df = add_range_row(df)
+",Adds a row to the dataframe where each value is the range (i.e. the difference between the minimum and maximum values) of the column it belongs to.
+16,"df = aggregate_downsampling(df, 'date', 'D')
+",Downsamples the DataFrame df by aggregating data to a daily frequency ('D') using the mean as the aggregation function.
+17,"df = period_averaging(df, 'date', 'D')
+",Averages the DataFrame df over daily periods ('D')
+18,"df = subsampling(df, 24)
+",Subsamples the DataFrame df by selecting every 24th row
+19,"df = interpolation_upsampling(df, 'date', '30T')
+",Upsamples the DataFrame df to a 30-minute frequency ('30T') using interpolation
+20,"df = forward_fill(df, 'date', '30T')
+",Upsamples the DataFrame df to a 30-minute frequency (30T) using forward fill to propagate the last valid observation forward
+21,"df = backward_fill(df, 'date', '30T')
+",Upsamples the DataFrame df to a 30-minute frequency ('30T') using backward fill to propagate the next valid observation backward
+22,"df = rolling_window_aggregation(df.set_index('date'), 24)
+",Applies rolling window aggregation with a window size of 24 rows to the DataFrame (after setting 'date' as the index) using the mean as the aggregation function
+23,"df = sliding_window_aggregation(df.set_index('date'), 24, 12)
+",Applies sliding window aggregation with a window size of 24 rows and a step size of 12 rows to the DataFrame df (after setting 'date' as the index) using the mean as the aggregation function.
+24,"new_time_grid = pd.date_range(start='2022-01-01', end='2022-01-10', freq='6H')
+time_alignment(df, 'date', new_time_grid)
+",Aligns the DataFrame df to a new time grid(from 2022-01-01 to 2022-01-10 with a 6-hour frequency) and interpolates missing values.
+25,"df = decimation(df, 24)
+",Decimates the DataFrame df by selecting every 24th row
+26,"df = resampling_with_smoothing(df, 'date', 'D')
+",Resamples the DataFrame df to a daily frequency ('D') using a Gaussian smoothing function
+27,"df = frequency_transformation(df, 'date', 'W')
+",Transforms the DataFrame df by resampling to a weekly frequency ('W') and summing the values.
+28,"df = hybrid_resampling(df, 'date', 'D')
+",Applies hybrid resampling to the DataFrame df by first interpolating to a daily frequency ('D') and then summing the values
+29,"df = fourier_transform_resampling(df, 'date', 'D')
+",Resamples the DataFrame df to a daily frequency ('D') using Fourier Transform and Inverse Fourier Transform.
+30,"df = wavelet_transform_resampling(df)
+",Resamples the DataFrame df using Wavelet Transform (default wavelet is 'db1')
+31,"df = duplication_with_noise(df)
+",This function duplicates each row in the DataFrame df and adds Gaussian noise to the numerical columns. The noise_level (0.01) parameter controls the standard deviation of the added noise.
+32,"df = random_feature_dropping(df)
+",This function randomly drops values in the DataFrame df to simulate missing data. The drop_prob (0.1) parameter controls the probability of dropping each value.
+33,"df = feature_perturbation(df)
+",This function perturbs numerical features by adding a random value within a specified range (controlled by perturbation_level (0.1)) to each numerical column.
+34,"df = shuffling(df)
+","This function randomly shuffles the rows of the DataFrame df, changing the order of data points."
+35,"df = adding_gaussian_noise(df[['feature1', 'feature2']])
+",This function adds Gaussian noise to the numerical columns of the DataFrame df. The noise_level (0.01) parameter controls the standard deviation of the added noise.
+36,"df = imputation(df[['feature1', 'feature2']])
+",This function imputes missing values in the numerical columns of the DataFrame df using mean imputation.
+37,"df = smote_augmentation(df, 'label')
+",This function generates synthetic samples for minority classes in the DataFrame df using SMOTE. The target_col ('label') parameter specifies the column to use for SMOTE.
+38,"df = categorical_variable_transformation(df, 'label', method='frequency')
+",This function transforms categorical variables by applying frequency encoding to the DataFrame df. The col ('label') parameter specifies the column to transform and the method ('frequency') specifies the encoding method.
+39,"df = feature_scaling_variations(df[['feature1', 'feature2']])
+",This function applies different scaling methods like robust scaling or log scaling to the numerical columns of the DataFrame df. The method ('robust') specifies the scaling method.
+40,"df = outlier_injection(df[['feature1', 'feature2']])
+",This function injects artificial outliers into the numerical columns of the DataFrame df. The outlier_level (0.1) parameter controls the level of the outliers to be injected.
+41,"df = time_warping(df, 'date')
+","This transformation distorts the time axis by applying a random warp factor to the time values. The time_col parameter specifies the column with time data, and the warp_factor parameter controls the degree of distortion (default is 0.1). The time values are converted to integer, multiplied by random values drawn from a normal distribution, and then converted back to datetime format."
+42,"df['date'] = pd.to_datetime(df['date'])
+df = temporal_interpolation(df, 'date')
+","This function fills in missing time points using interpolation techniques. The time_col parameter specifies the time column, and the method parameter determines the interpolation method (default is 'linear'). The data is resampled to hourly intervals and interpolated to fill missing values."
+43,"df = time_series_scaling(df, 'date')
+","This transformation aggregates time series data to different time intervals. The time_col parameter specifies the time column, and the freq parameter determines the new frequency (default is daily, 'D'). The data is resampled and averaged over the specified frequency."
+44,"df = time_series_forecasting(df, 'date', periods=24)
+","This function generates synthetic future data points using forecasting models. The time_col parameter specifies the time column, periods specifies the number of future periods to forecast, freq specifies the frequency of the time series (default is hourly, 'H'), and model specifies the forecasting model (default is 'linear'). The future values are generated using linear interpolation from the last available data point."
+45,"df = seasonality_injection(df, 'date', period=24*7)
+","This transformation introduces artificial seasonal patterns into time series data. The time_col parameter specifies the time column, period specifies the period of the seasonality (e.g., 24*7 for weekly), and amplitude specifies the amplitude of the seasonal variation (default is 1.0). A sinusoidal seasonal pattern is added to the data."
+46,"df = time_series_differencing(df, 'date')
+","This transformation creates new features representing changes over time. The time_col parameter specifies the time column, and periods specifies the number of periods to difference (default is 1). The data is differenced by the specified number of periods."
+47,"df = resampling_with_noise(df, 'date', 'D')
+","this transformation resamples the data to a new frequency and adds Gaussian noise. The time_col parameter specifies the time column, new_freq specifies the new frequency (e.g., 'D' for daily), and noise_level specifies the standard deviation of the added noise (default is 0.01). The data is resampled and noise is added to the numerical columns."
+48,"df = add_time_based_features(df, 'timestamp')
+","Extracts time-related features from the 'timestamp' column, such as hour, day, month, day of the week, and whether it is a weekend. These new features are added to the DataFrame."
+49,"df = add_lag_features(df, 'value', lags=[1, 2, 3])
+","Adds lag features for the 'value' column by shifting the data by 1, 2, and 3 time steps, creating new columns for each lag in the DataFrame."
+50,"df = add_rolling_statistics(df, 'value', window=7)
+","Calculates rolling statistics (mean, standard deviation, minimum, and maximum) over a 7-time step window for the 'value' column. These statistics are added as new features to the DataFrame."
+51,"df = add_ema_features(df, 'value', span=10)
+",Adds Exponential Moving Average (EMA) features for the 'value' column with a span of 10. These EMA features are added as new features to the DataFrame.
+52,"df = add_fourier_transform_features(df, 'value')
+",Applies the Fourier Transform to the 'value' column and adds the real and imaginary parts of the transformed data as new features in the DataFrame.'
+53,"df = add_autocorrelation_features(df, 'value', lags=[1, 2, 3])
+","Computes the autocorrelation for the 'value' column at lags 1, 2, and 3 and adds these autocorrelation values as new features to the DataFrame."
+54,"df = add_wavelet_transform_features(df, 'value', wavelet='db1')
+",Performs a Wavelet Transform on the 'value' column using the 'db1' wavelet and adds the wavelet coefficients as new features in the DataFrame.
+55,"df = add_stl_features(df, 'value', period=12)
+","Performs a STL decomposition on the 'value' column with a period of 12 and adds the trend, seasonal, and residual components as new features to the DataFrame."
+56,"df = add_peak_features(df, 'value')
+",Detects peaks in the 'value' column and adds the count of detected peaks as a new feature named 'Num_peaks' in the DataFrame.
+57,"df = add_trend_features(df, 'value')
+","Fits a linear regression model to the 'value' column to determine the trend, adding the slope and intercept of the trend as new features in the DataFrame."
+58,"df = add_signal_processing_features(df, 'value', cutoff=0.1, fs=1.0, order=2)
+","Applies a low-pass Butterworth filter to the 'value' column with a specified cutoff frequency (0.1), sampling frequency (1.0), and filter order (2). The filtered signal is added as a new feature in the DataFrame."
+59,"df = add_statistical_test_features(df, 'value')
+","Performs the Augmented Dickey-Fuller (ADF) test on the 'value' column to check for stationarity, adding the ADF statistic and p-value as new features in the DataFrame"
+60,"df = add_frequency_domain_features(df, 'value')
+","Calculates the dominant frequency and its amplitude from the Fourier Transform of the 'value' column, adding these as new features in the DataFrame."
+61,"df = add_anomaly_scores(df, 'value')
+","Uses Isolation Forest to compute anomaly scores for the 'value' column, adding these scores as a new feature named 'Anomaly_score' in the DataFrame"
+62,"df = add_polynomial_features(df, degree=2)
+","This function call creates new features (columns) that include the original columns, their squares and their interaction terms. i.e new columns containing x1, x1^2, x2, x2^2, x1 * x2."
+63,"df = add_ica_features(df, n_components=2)
+","Applies Independent Component Analysis (ICA) to the numerical features of the DataFrame to extract 2 independent components, which are then added as new features to the DataFrame."
+64,"df = add_clustering_features(df, n_clusters=2)
+",Performs K-means clustering on the numerical features of the DataFrame to form 2 clusters. The cluster labels for each data point are added as a new feature named 'Cluster_Label'
+65,"df = add_entropy_features(df, categorical_columns=['cat_1'])
+","Computes the entropy for the specified categorical columns (in this case, 'cat_1'). The entropy values, which measure the disorder or randomness of the categorical distributions, are added as new features (columns) to the DataFram"
+66,"df = add_date_features(df, date_column='date')
+","Extracts various components from the specified date column ('date') and adds them as new features. These components include the day of the week, month, year, quarter, and whether the date falls on a weekend."
+67,"df = add_textual_features(df, text_column='text')
+","Generates textual features from the specified text column ('text'). These features include the word count, unique word count, and average word length for each text entry."
+68,"df = select_features_information_gain(df.iloc[:,0:20], df['target'])
+",Selects features from X based on their information gain with respect to the target variable y.
+69,"df = select_features_chi2(df.iloc[:,0:20], df['target'])
+",Identifies features from X that are most likely to be independent of the target variable y by evaluating their relationship using the chi-square statistical test.
+70,"df = select_features_variance_threshold(df.iloc[:,0:20])
+","Removes features with low variance, retaining only those that meet a certain variance threshold."
+71,"df = select_features_rfe(df.iloc[:,0:20], df['target'])
+",Performs Recursive Feature Elimination (RFE) to select features by recursively considering smaller and smaller sets of features and ranking them based on model performance.
+72,"df = select_features_lasso(df.iloc[:,0:20], df['target'])
+","Utilizes Lasso regression to select features by penalizing the absolute size of regression coefficients, favoring sparse solutions with only the most impactful predictors"
+73,"df = select_features_random_forest(df.iloc[:,0:20], df['target'])
+","Determines feature importance by training a Random Forest model and selecting features based on their contribution to predictive accuracy, effectively prioritizing the most influential predictors"
+74,"df = hash_encoding(df)
+",Performs hash encoding on the categorical data (defined as columns with datatype = object). Encodes categorical data with a hash value.
+75,"df = base_n_encoding(df)
+",Performs base N encoding on the categorical data (defined as columns with datatype = object). Encodes categorical data with base N encoding.
+76,"df = frequency_encoding(df)
+",Performs frequency encoding on the categorical data (defined as columns with datatype = object). Encodes categorical data with the frequency of the data.
+77,"df = mean_imputation(df)
+", Replaces missing values with the mean of the column.
+78,"df = mode_imputation(df)
+",Replaces missing values with the mode of the column.
+79,"df = median_imputation(df)
+",Replaces missing values with the median of the column.
+80,"df = max_imputation(df)
+",Replaces missing values with the maximum value of the column.
+81,"df = min_imputation(df)
+",Replaces missing values with the minimum value of the column.
+82,"df = flooring_capping(df)
+",Deals with outliers by performing flooring at the lower 10% quantile and capping at the upper 90% quantile.
+83,"df = outlier_median_imputation(df)
+","Replaces outliers, detected using Tukey's method, with the median of the column."
